@@ -12,6 +12,40 @@
             box-sizing: border-box;
         }
 
+/* Для мобильных устройств */
+@media only screen and (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+    }
+
+    .header-title {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-text {
+        font-size: 16px;
+    }
+
+    .footer-text {
+        text-align: center;
+    }
+}
+
+
         /* Стили для навигационной панели */
         .nav {
             display: flex;
