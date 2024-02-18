@@ -5,27 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Kulev</title>
     <style>
-       /* Стили для шапки сайта */
-.header {
-  /* Ширина шапки равна 100% ширины её контейнера */
-  width: auto;
-}
-
-/* Стили для изображения внутри шапки */
-.header img {
-  /* Ширина изображения равна 100% ширины контейнера (шапки) */
-  width: auto;
-  /* Высота изображения масштабируется автоматически, чтобы сохранить пропорции */
-  height: auto;
-}
-
-    
-        
-        
-        
-        
-        
-         /* Общие стили для всего сайта */
+        /* Общие стили для всего сайта */
         * {
             margin: 0;
             padding: 0;
@@ -68,145 +48,25 @@
             border-bottom: 2px solid white;
         }
 
-        /* Стили для поисковой формы */
-        .search-form {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-input {
-            width: 200px;
-            height: 30px;
-            border: none;
-            outline: none;
-            padding: 5px;
-        }
-
-        .search-button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            outline: none;
-            background-color: #333;
-            cursor: pointer;
-        }
-
         /* Стили для заголовочной секции */
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: url ; /* Замените на свое изображение */
+            background-image: url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg'); /* Изображение в качестве фона */
             background-size: cover;
             background-position: center;
             height: 500px;
-        }
-
-        .header-content {
-            text-align: center;
-            color: white;
-        }
-
-        .header-title {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .header-text {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        /* Стили для основной секции */
-        .main {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            background-color: #f0f0f0;
-            padding: 40px;
-        }
-
-        .section {
-            width: 80%;
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .section-text {
-            font-size: 18px;
-            line-height: 1.5;
-            text-align: justify;
-        }
-
-        /* Стили для секции с изображениями */
-        .images-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .image {
-            width: 30%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        /* Стили для секции с видео */
-        .video-section {
-            display: flex;
             justify-content: center;
         }
 
-        .video {
-            width: 80%;
-            height: 400px;
+        .header img {
+            max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+            height: auto; /* Автоматическое масштабирование высоты для сохранения пропорций */
         }
 
-        /* Стили для секции с галереей */
-        .gallery-section {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        /* Стили для подвала */
-        .footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #333;
-            height: 60px;
-            padding: 10px;
-            color: white;
-        }
-
-        .footer-text {
-            font-size: 18px;
-        }
-
-        .social-icons {
-            display: flex;
-            list-style: none;
-        }
-
-        .social-icon {
-            width: 30px;
-            height: 30px;
-            margin-left: 10px;
+        /* Общие стили для секций */
+        .section {
+            padding: 40px;
         }
     </style>
 </head>
@@ -222,45 +82,36 @@
             <li><a href="#services" class="nav-link">Мои навыки</a></li>
             <li><a href="#portfolio" class="nav-link">Портфолио</a></li>
             <li><a href="#contact" class="nav-link">Контакты</a></li>
-      </div>
+        </ul>
+    </div>
+
     <!-- Заголовочная секция -->
     <div id="header" class="header">
         <div class="header-content">
-            <h1 class="header-title">
-                
-               <!-- Этот блок содержит шапку сайта -->
-<div class="header">
-  <!-- Изображение, которое будет использоваться в качестве фона шапки -->
-  <img src="https://i.postimg.cc/66LDTBBH/IMG-0107.jpg" alt="IMG-0107">
-</div>
-
-
-                
-            <p class="header-text">Здесь вы можете узнать больше обо мне.</p>
+            <h1 class="header-title">Заголовок шапки</h1>
+            <p class="header-text">Описание шапки</p>
         </div>
     </div>
+
     <!-- Основная секция -->
     <div class="main">
         <!-- Секция о нас -->
         <div id="about" class="section">
             <h2 class="section-title">Обо мне</h2>
-            <p class="section-text">Я - начинающий QA engineer.</p>
+            <p class="section-text">Текст обо мне</p>
         </div>
         <!-- Секция с услугами -->
         <div id="services" class="section">
             <h2 class="section-title">Мои навыки</h2>
-               <ul class="section-text">
-                <ul>
-    <li>Умею использовать Charles для перехвата и анализа трафика, проводить нагрузочное и стресс-тестирование.</li>
-    <li>Знаком с Jira для написания тест-кейсов и заведения багов.</li>
-    <li>Имею опыт работы с MS SQL для выполнения простых запросов в базах данных.</li>
-    <li>Имею практические навыки работы с SOAP и REST API, используя Postman и SoapUI.</li>
-    <li>Опыт составления тест-кейсов, чек-листов и баг-репортов.</li>
-    <li>Использовал Chrome DevTools для симуляции различных сценариев пользовательского опыта, таких как оффлайн-режим, замедленная сеть и различные геолокации.</li>
-    <li>Опыт в тестировании приложения для iOS - Adventure and Life, веб-сайта - awesomescreenshot, cat-fact.herokuapp.</li>
-</ul>
-
-
+            <ul class="section-text">
+                <li>Умею использовать Charles для перехвата и анализа трафика, проводить нагрузочное и стресс-тестирование.</li>
+                <li>Знаком с Jira для написания тест-кейсов и заведения багов.</li>
+                <li>Имею опыт работы с MS SQL для выполнения простых запросов в базах данных.</li>
+                <li>Имею практические навыки работы с SOAP и REST API, используя Postman и SoapUI.</li>
+                <li>Опыт составления тест-кейсов, чек-листов и баг-репортов.</li>
+                <li>Использовал Chrome DevTools для симуляции различных сценариев пользовательского опыта, таких как оффлайн-режим, замедленная сеть и различные геолокации.</li>
+                <li>Опыт в тестировании приложения для iOS - Adventure and Life, веб-сайта - awesomescreenshot, cat-fact.herokuapp.</li>
+            </ul>
         </div>
         <!-- Секция с портфолио -->
         <div id="portfolio" class="section">
