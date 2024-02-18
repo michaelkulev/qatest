@@ -101,14 +101,11 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-        }
-
-        .image-column {
-            flex: 1 0 33.33%; /* Равное распределение по ширине */
+            justify-content: center; /* Выравнивание изображений по центру */
         }
 
         .image {
-            width: 100%;
+            width: 30%; /* Ширина изображения в одном ряду */
             height: auto;
             cursor: pointer;
             transition: transform 0.3s ease; /* Плавное изменение размера */
@@ -165,15 +162,9 @@
         <div id="portfolio" class="section">
             <h2 class="section-title">Портфолио</h2>
             <div class="images-section">
-                <div class="image-column">
-                    <img src="https://i.postimg.cc/XNF5DgbB/IMG-1429.png" alt="Изображение 1" class="image">
-                </div>
-                <div class="image-column">
-                    <img src="https://i.postimg.cc/VL69CPx9/IMG-0109.jpg" alt="Изображение 2" class="image">
-                </div>
-                <div class="image-column">
-                    <img src="https://i.postimg.cc/6pqDBqzR/IMG-0110.png" alt="Изображение 3" class="image">
-                </div>
+                <img src="https://i.postimg.cc/XNF5DgbB/IMG-1429.png" alt="Изображение 1" class="image">
+                <img src="https://i.postimg.cc/VL69CPx9/IMG-0109.jpg" alt="Изображение 2" class="image">
+                <img src="https://i.postimg.cc/6pqDBqzR/IMG-0110.png" alt="Изображение 3" class="image">
                 <!-- Добавьте еще изображения здесь -->
             </div>
         </div>
