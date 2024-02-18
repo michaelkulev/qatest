@@ -34,8 +34,6 @@
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .nav-link {
@@ -50,20 +48,71 @@
             border-bottom: 2px solid white;
         }
 
-        /* Медиа-запрос для мобильных устройств */
-        @media screen and (max-width: 768px) {
-            .nav {
-                flex-direction: column; /* Расположение элементов в столбец */
-                height: auto; /* Высота автоматически рассчитывается */
-            }
+        /* Стили для заголовочной секции */
+        .header {
+            background-image: url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg'); /* Изображение в качестве фона */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-            .nav-links {
-                margin-top: 10px; /* Отступ сверху для ссылок */
-            }
+        .header img {
+            max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+            height: auto; /* Автоматическое масштабирование высоты для сохранения пропорций */
+            transition: transform 0.3s ease; /* Плавное изменение размера */
+        }
 
-            .nav-link {
-                margin: 5px 0; /* Уменьшаем отступы */
-            }
+        .header img:hover {
+            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
+        }
+
+        /* Общие стили для секций */
+        .section {
+            padding: 40px;
+        }
+
+        /* Стили для содержимого заголовка */
+        .header-content {
+            text-align: center; /* Заголовки по середине */
+            color: white;
+        }
+
+        .header-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .header-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center; /* Центрирование заголовка */
+        }
+
+        .images-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center; /* Выравнивание изображений по центру */
+        }
+
+        .image {
+            width: 30%; /* Ширина изображения в одном ряду */
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Плавное изменение размера */
+        }
+
+        .image:hover {
+            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
         }
     </style>
 </head>
