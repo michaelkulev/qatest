@@ -92,6 +92,45 @@
     text-align: center; /* Центрирование заголовка */
 }
 
+.images-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-column {
+    width: 33.33%; /* 6 столбцов по 1/3 ширины контейнера */
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-zoom {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.image-zoom input[type="checkbox"] {
+    display: none;
+}
+
+.image-zoom input[type="checkbox"]:checked ~ img {
+    transform: scale(1.2); /* Увеличение изображения в 1.2 раза */
+    transition: transform 0.3s ease; /* Плавный переход */
+    z-index: 1;
+}
+
     </style>
 </head>
 <body>
@@ -138,15 +177,25 @@
             </ul>
         </div>
         <!-- Секция с портфолио -->
-        <div id="portfolio" class="section">
-            <h2 class="section-title">Вот некоторое из моих работ</h2>
-            
-            <!-- Секция с изображениями -->
-            <div class="images-section">
-                <img src="image1.jpg" alt="Изображение 1" class="image"> <!-- Замените на свои изображения -->
-                <!-- Здесь можно добавить другие изображения -->
-            </div>
+<div id="portfolio" class="section">
+    <h2 class="section-title">Портфолио</h2>
+    <div class="images-section">
+        <div class="image-column">
+            <label for="image1" class="image-zoom">
+                <img src="image1.jpg" alt="Изображение 1" class="image">
+            </label>
+            <input type="checkbox" id="image1" class="hidden">
         </div>
+        <div class="image-column">
+            <label for="image2" class="image-zoom">
+                <img src="image2.jpg" alt="Изображение 2" class="image">
+            </label>
+            <input type="checkbox" id="image2" class="hidden">
+        </div>
+        <!-- Добавьте еще четыре изображения здесь -->
+    </div>
+</div>
+
         <!-- Секция с контактами -->
         <div id="contact" class="section">
             <h2 class="section-title">Контакты</h2>
