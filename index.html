@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Kulev</title>
     <style>
-        /* Общие стили для всего сайта */
+       /* Стили для шапки сайта */
+.header {
+  /* Ширина шапки равна 100% ширины её контейнера */
+  width: 100%;
+}
+
+/* Стили для изображения внутри шапки */
+.header img {
+  /* Ширина изображения равна 100% ширины контейнера (шапки) */
+  width: 100%;
+  /* Высота изображения масштабируется автоматически, чтобы сохранить пропорции */
+  height: auto;
+}
+
+    
+        
+        
+        
+        
+        
+         /* Общие стили для всего сайта */
         * {
             margin: 0;
             padding: 0;
@@ -208,9 +228,12 @@
         <div class="header-content">
             <h1 class="header-title">
                 
-                <a href='https://postimages.org/' target='_blank' style='display: block; margin-top: 20px;'>
-  <img src='https://i.postimg.cc/66LDTBBH/IMG-0107.jpg' border='0' alt='IMG-0107'/>
-</a>
+               <!-- Этот блок содержит шапку сайта -->
+<div class="header">
+  <!-- Изображение, которое будет использоваться в качестве фона шапки -->
+  <img src="https://i.postimg.cc/66LDTBBH/IMG-0107.jpg" alt="IMG-0107">
+</div>
+
 
                 
             <p class="header-text">Здесь вы можете узнать больше обо мне.</p>
