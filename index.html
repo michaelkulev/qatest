@@ -33,19 +33,33 @@
         /* Стили для ссылок навигации */
         .nav-links {
             display: flex;
+            flex-direction: column; /* Одна ссылка под другой */
             list-style: none;
+            padding: 0;
         }
 
         .nav-link {
             color: white;
             font-size: 18px;
-            margin-left: 20px;
+            margin-bottom: 10px; /* Отступ между ссылками */
             text-decoration: none;
         }
 
         /* Стили для активной ссылки */
         .nav-link.active {
             border-bottom: 2px solid white;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (min-width: 769px) {
+            .nav-links {
+                flex-direction: row; /* Восстанавливаем горизонтальное расположение для широких экранов */
+            }
+
+            .nav-link {
+                margin-bottom: 0; /* Убираем отступ между ссылками */
+                margin-left: 20px; /* Добавляем отступ между ссылками */
+            }
         }
 
         /* Стили для заголовочной секции */
