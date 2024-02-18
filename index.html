@@ -34,7 +34,6 @@
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0; /* Убираем внешний отступ у списка */
         }
 
         .nav-link {
@@ -49,41 +48,74 @@
             border-bottom: 2px solid white;
         }
 
-        /* Стили для мобильного меню */
-        .mobile-menu {
-            display: none; /* Скрываем мобильное меню по умолчанию */
+        /* Стили для заголовочной секции */
+        .header {
+            background-image: url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg'); /* Изображение в качестве фона */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Медиа-запросы для адаптации меню под мобильные устройства */
-        @media (max-width: 768px) {
-            .nav {
-                flex-direction: column; /* Отображаем пункты меню вертикально на мобильных устройствах */
-                height: auto; /* Автоматическая высота навигационной панели */
-            }
+        .header img {
+            max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+            height: auto; /* Автоматическое масштабирование высоты для сохранения пропорций */
+            transition: transform 0.3s ease; /* Плавное изменение размера */
+        }
 
-            .nav-links {
-                flex-direction: column; /* Отображаем ссылки вертикально на мобильных устройствах */
-                margin-top: 10px; /* Добавляем отступ сверху между ссылками */
-            }
+        .header img:hover {
+            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
+        }
 
-            .nav-link {
-                margin: 5px 0; /* Убираем отступы по бокам, оставляем только вертикальные отступы */
-            }
+        /* Общие стили для секций */
+        .section {
+            padding: 40px;
+        }
 
-            .mobile-menu {
-                display: block; /* Отображаем мобильное меню на мобильных устройствах */
-                cursor: pointer; /* Делаем курсор указателем при наведении */
-            }
+        /* Стили для содержимого заголовка */
+        .header-content {
+            text-align: center; /* Заголовки по середине */
+            color: white;
+        }
 
-            .mobile-menu.active ~ .nav-links {
-                display: flex; /* Показываем пункты меню при активном мобильном меню */
-                flex-direction: column; /* Отображаем пункты меню вертикально */
-                text-align: center; /* Выравниваем пункты меню по центру */
-            }
+        .header-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-            .mobile-menu.active .nav-link {
-                margin: 10px 0; /* Увеличиваем вертикальные отступы для пунктов меню */
-            }
+        .header-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center; /* Центрирование заголовка */
+        }
+
+        .images-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .image-column {
+            flex: 1 0 33.33%; /* Равное распределение по ширине */
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Плавное изменение размера */
+        }
+
+        .image:hover {
+            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
         }
     </style>
 </head>
@@ -92,11 +124,6 @@
     <div class="nav">
         <!-- Логотип -->
         <a href="#" class="logo">Michael Kulev</a>
-        <!-- Мобильное меню -->
-        <div class="mobile-menu" onclick="toggleMenu()">
-            <!-- Иконка меню -->
-            &#9776;
-        </div>
         <!-- Ссылки навигации -->
         <ul class="nav-links">
             <li><a href="#header" class="nav-link active">Главная</a></li>
@@ -138,18 +165,15 @@
         <div id="portfolio" class="section">
             <h2 class="section-title">Портфолио</h2>
             <div class="images-section">
-                <input type="checkbox" id="image1" class="hidden">
-                <label for="image1" class="image-column">
+                <div class="image-column">
                     <img src="https://i.postimg.cc/XNF5DgbB/IMG-1429.png" alt="Изображение 1" class="image">
-                </label>
-                <input type="checkbox" id="image2" class="hidden">
-                <label for="image2" class="image-column">
+                </div>
+                <div class="image-column">
                     <img src="https://i.postimg.cc/VL69CPx9/IMG-0109.jpg" alt="Изображение 2" class="image">
-                </label>
-                <input type="checkbox" id="image3" class="hidden">
-                <label for="image3" class="image-column">
+                </div>
+                <div class="image-column">
                     <img src="https://i.postimg.cc/6pqDBqzR/IMG-0110.png" alt="Изображение 3" class="image">
-                </label>
+                </div>
                 <!-- Добавьте еще изображения здесь -->
             </div>
         </div>
@@ -165,13 +189,5 @@
     <div class="footer">
         <div class="footer-text">© 2024 </div>
     </div>
-
-    <script>
-        // Функция для переключения активного состояния мобильного меню
-        function toggleMenu() {
-            const menu = document.querySelector('.mobile-menu');
-            menu.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
