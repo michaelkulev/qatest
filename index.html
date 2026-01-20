@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi.Kulev</title>
+    <title>Michael Kulev | Engineer</title>
     <style>
         * {
             margin: 0;
@@ -11,13 +11,23 @@
             box-sizing: border-box;
         }
 
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+        }
+
+        /* Навигационная панель (только логотип) */
         .nav {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             background-color: #333;
             height: 60px;
-            padding: 10px;
+            padding: 0 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
         .logo {
@@ -27,122 +37,61 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            padding: 0;
-        }
-
-        .nav-link {
-            color: white;
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-decoration: none;
-        }
-
-        .nav-link.active {
-            border-bottom: 2px solid white;
-        }
-
-        @media (min-width: 769px) {
-            .nav-links {
-                flex-direction: row;
-            }
-
-            .nav-link {
-                margin-bottom: 0; 
-                margin-left: 20px;
-            }
-        }
-
+        /* Главный блок с фоном */
         .header {
-            background-image: url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 100vh; /* Растягиваем на весь экран */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .header img {
-            max-width: 100%;
-            height: auto; 
-            transition: transform 0.3s ease;
-        }
-
-        .header img:hover {
-            transform: scale(2); 
-        }
-
-        .section {
-            padding: 40px;
-        }
-
         .header-content {
             text-align: center;
-            color: white;
         }
 
-        .header-title {
+        /* Стилизация кнопки Engineer */
+        .btn-engineer {
             font-size: 48px;
             font-weight: bold;
-            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .header-text {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .section-title {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
+        .btn-engineer:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
-        .images-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .image {
-            width: 30%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .image:hover {
-            transform: scale(2); 
+        @media (max-width: 600px) {
+            .btn-engineer {
+                font-size: 32px;
+                padding: 10px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="nav">
+
+    <nav class="nav">
         <a href="#" class="logo">Michael Kulev</a>
-        <ul class="nav-links">
-            <li><a href="#header" class="nav-link active">Главная</a></li>
-            <li><a href="#about" class="nav-link">Обо мне</a></li>
-            <li><a href="#services" class="nav-link">Мои навыки</a></li>
-            <li><a href="#portfolio" class="nav-link">Портфолио</a></li>
-            <li><a href="#contact" class="nav-link">Контакты</a></li>
-        </ul>
-    </div>
+    </nav>
 
-     <div id="header" class="header">
+    <header class="header">
         <div class="header-content">
-            <h1 class="header-title">Engineer</h1>
+            <a href="https://t.me/write_miku" class="btn-engineer" target="_blank">Engineer</a>
         </div>
-   </div>
-        <div id="contact" class="section">
-            <h4 class="section-title">Контакты</h4>
-            <a href="https://t.me/@write_miku" class="button-link" target="_blank" style="text-decoration: none; text-align: center; display: block;">
-  <h1 class="section-title" style="font-size: small; padding: 5px 10px; background-color: #007bff; color: #fff; border-radius: 5px; display: inline-block; margin: 0 auto;">t.me</h1>
+    </header>
 
-    </div>
-  </body>
+</body>
 </html>
