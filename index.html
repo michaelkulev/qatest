@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mi.Kulev.">
-    <title>Mi.Kulev | Hardware Engineer</title>
+    <title>M.Kulev</title>
     <style>
         :root {
             --accent-color: #00ff41;
@@ -27,10 +27,10 @@
             position: fixed;
             top: 0; left: 0;
             z-index: 1;
-            opacity: 0.4; /* Чтобы не отвлекало от контента */
+            opacity: 0.4;
         }
 
-        /* Слой затенения для читаемости */
+
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -38,7 +38,7 @@
             z-index: 2;
         }
 
-        /* Навигация */
+        
         .nav {
             display: flex;
             align-items: center;
@@ -66,7 +66,7 @@
             text-transform: uppercase;
         }
 
-        /* Контент */
+      
         .main-frame {
             position: relative;
             height: 100vh;
@@ -104,7 +104,7 @@
             box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
         }
 
-        /* Декор кнопки */
+      
         .corner {
             position: absolute;
             width: 8px;
@@ -146,7 +146,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Символы: шестнадцатеричный код и системные знаки
+        
         const latin = '0123456789ABCDEF<>[]{}_+*#';
         const nums = latin.split('');
 
@@ -156,11 +156,11 @@
         const rainDrops = Array.from({ length: columns }).fill(1);
 
         const draw = () => {
-            // Создаем эффект затухания (прозрачный черный прямоугольник поверх)
+            
             ctx.fillStyle = 'rgba(5, 5, 5, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#00ff41'; // Цвет текста
+            ctx.fillStyle = '#00ff41'; 
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < rainDrops.length; i++) {
