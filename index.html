@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Kulev</title>
     <style>
-        /* Общие стили для всего сайта */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Стили для навигационной панели */
         .nav {
             display: flex;
             align-items: center;
@@ -22,7 +20,6 @@
             padding: 10px;
         }
 
-        /* Стили для логотипа */
         .logo {
             color: white;
             font-size: 24px;
@@ -30,7 +27,6 @@
             text-decoration: none;
         }
 
-        /* Стили для ссылок навигации */
         .nav-links {
             display: flex;
             flex-direction: column; /* Одна ссылка под другой */
@@ -41,28 +37,25 @@
         .nav-link {
             color: white;
             font-size: 18px;
-            margin-bottom: 10px; /* Отступ между ссылками */
+            margin-bottom: 10px;
             text-decoration: none;
         }
 
-        /* Стили для активной ссылки */
         .nav-link.active {
             border-bottom: 2px solid white;
         }
 
-        /* Медиа-запросы для адаптивности */
         @media (min-width: 769px) {
             .nav-links {
-                flex-direction: row; /* Восстанавливаем горизонтальное расположение для широких экранов */
+                flex-direction: row;
             }
 
             .nav-link {
-                margin-bottom: 0; /* Убираем отступ между ссылками */
-                margin-left: 20px; /* Добавляем отступ между ссылками */
+                margin-bottom: 0; 
+                margin-left: 20px;
             }
         }
 
-        /* Стили для заголовочной секции */
         .header {
             background-image: url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg'); /* Изображение в качестве фона */
             background-size: cover;
@@ -74,23 +67,21 @@
         }
 
         .header img {
-            max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
-            height: auto; /* Автоматическое масштабирование высоты для сохранения пропорций */
-            transition: transform 0.3s ease; /* Плавное изменение размера */
+            max-width: 100%;
+            height: auto; 
+            transition: transform 0.3s ease;
         }
 
         .header img:hover {
-            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
+            transform: scale(2); 
         }
 
-        /* Общие стили для секций */
         .section {
             padding: 40px;
         }
 
-        /* Стили для содержимого заголовка */
         .header-content {
-            text-align: center; /* Заголовки по середине */
+            text-align: center;
             color: white;
         }
 
@@ -108,34 +99,31 @@
             font-size: 36px;
             font-weight: bold;
             margin-bottom: 20px;
-            text-align: center; /* Центрирование заголовка */
+            text-align: center;
         }
 
         .images-section {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: center; /* Выравнивание изображений по центру */
+            justify-content: center;
         }
 
         .image {
-            width: 30%; /* Ширина изображения в одном ряду */
+            width: 30%;
             height: auto;
             cursor: pointer;
-            transition: transform 0.3s ease; /* Плавное изменение размера */
+            transition: transform 0.3s ease;
         }
 
         .image:hover {
-            transform: scale(2); /* Увеличение изображения в 2 раза при наведении */
+            transform: scale(2); 
         }
     </style>
 </head>
 <body>
-    <!-- Навигационная панель -->
     <div class="nav">
-        <!-- Логотип -->
         <a href="#" class="logo">Michael Kulev</a>
-        <!-- Ссылки навигации -->
         <ul class="nav-links">
             <li><a href="#header" class="nav-link active">Главная</a></li>
             <li><a href="#about" class="nav-link">Обо мне</a></li>
@@ -145,23 +133,16 @@
         </ul>
     </div>
 
-    <!-- Заголовочная секция -->
-    <div id="header" class="header">
+     <div id="header" class="header">
         <div class="header-content">
             <h1 class="header-title">QA engineer manual testing</h1>
         </div>
     </div>
 
-    <!-- Основная секция -->
     <div class="main">
-        <!-- Секция о нас -->
         <div id="about" class="section">
             <h2 class="section-title">Обо мне</h2>
-            <p class="section-text">Я решил начать свой путь в IT сфере с тестирования. Я убежден, что это отличное начало, которое позволит мне глубже понять основы разработки программного обеспечения, научиться работать с различными технологиями и платформами. Роль тестировщика предоставляет уникальную возможность не только выявить потенциальные проблемы в продуктах, но и активно участвовать в процессе их создания, помогая создавать программное обеспечение высокого качества.
-
-Я увлечен возможностью развиваться в этой области, осваивать новые методы тестирования и инструменты автоматизации, что, безусловно, поможет мне стать более компетентным и востребованным специалистом. Моя цель - не просто стать успешным тестировщиком, но и продвигаться дальше, возможно, в область разработки или управления проектами в IT, используя полученный опыт и знания как прочную базу для будущего роста и достижения новых высот в карьере.</p>
-        </div>
-        <!-- Секция с услугами -->
+            <p class="section-text">88
         <div id="services" class="section">
             <h2 class="section-title">Мои навыки</h2>
             <ul class="section-text">
@@ -174,23 +155,20 @@
                 <li>Опыт в тестировании приложения для iOS - Adventure and Life, веб-сайта - awesomescreenshot, cat-fact.herokuapp.</li>
             </ul>
         </div>
-        <!-- Секция с портфолио -->
+
         <div id="portfolio" class="section">
             <h2 class="section-title">Портфолио</h2>
                 <div class="images-section">
                 <img src="https://i.postimg.cc/XNF5DgbB/IMG-1429.png" alt="Изображение 1" class="image">
                 <img src="https://i.postimg.cc/YSG8k1xW/IMG-0114.jpg" alt="Изображение 2" class="image">
                 <img src="https://i.postimg.cc/63cCs0Pw/IMG-0116.jpg" alt="Изображение 3" class="image">
-                <!-- Добавьте еще изображения здесь -->
             </div>
             <div class="images-section">
                 <img src="https://i.postimg.cc/ZqB9M0Kj/IMG-0111.jpg" alt="Изображение 1" class="image">
                 <img src="https://i.postimg.cc/HnjJMtPY/IMG-0113.jpg" alt="Изображение 2" class="image">
                 <img src="https://i.postimg.cc/662KSSRW/IMG-0112.jpg" alt="Изображение 3" class="image">
-                <!-- Добавьте еще изображения здесь -->
             </div>
         </div>
-        <!-- Секция с контактами -->
         <div id="contact" class="section">
             <h2 class="section-title">Контакты</h2>
             <a href="https://hh.ru/resume/dc400e4bff0c605b540039ed1f627231533971" class="button-link" target="_blank" style="text-decoration: none; text-align: center; display: block;">
@@ -201,7 +179,6 @@
             <p class="section-text">Telegram: @write_miku</p>
         </div>
     </div>
-    <!-- Подвал -->
     <div class="footer">
         
         <div class="footer-text">© 2024 </div>
