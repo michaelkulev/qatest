@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Michael Kulev - Инженер АСУ ТП, эксперт по электронике и информационной безопасности.">
-    <title>Michael Kulev | System Engineer & Cybersecurity</title>
+    <meta name="description" content="Michael Kulev - Инженер АСУ ТП, электроника и кибербезопасность.">
+    <title>Michael Kulev | System Engineer</title>
     <style>
         :root {
-            --accent-color: #00ff41; /* Цвет терминала Matrix/Промышленного индикатора */
-            --bg-dark: #0a0a0a;
-            --text-gray: #cccccc;
+            --accent-color: #00ff41;
+            --bg-dark: #050505;
+            --text-gray: #888;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             height: 100%;
-            font-family: 'Courier New', Courier, monospace; /* Инженерный стиль */
             background-color: var(--bg-dark);
-            color: white;
+            font-family: 'Courier New', monospace;
             overflow: hidden;
+            color: white;
         }
 
-        /* Фоновая сетка (имитация осциллографа/чертежа) */
-        .grid-bg {
+        /* Canvas для фона */
+        #dataStream {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 1;
+            opacity: 0.4; /* Чтобы не отвлекало от контента */
+        }
+
+        /* Слой затенения для читаемости */
+        .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 1;
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(5,5,5,1) 80%);
+            z-index: 2;
         }
 
         /* Навигация */
@@ -42,127 +43,143 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(10px);
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
             height: 60px;
             padding: 0 30px;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .logo {
             color: var(--accent-color);
-            font-size: 20px;
-            font-weight: bold;
             text-decoration: none;
+            font-weight: bold;
             letter-spacing: 2px;
+        }
+
+        .status {
+            font-size: 10px;
+            color: var(--accent-color);
             text-transform: uppercase;
         }
 
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            font-size: 12px;
-            color: var(--accent-color);
-        }
-
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 0 10px var(--accent-color);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
-        /* Главный блок */
-        .header {
+        /* Контент */
+        .main-frame {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://i.postimg.cc/66LDTBBH/IMG-0107.jpg') center/cover no-repeat;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-        }
-
-        .header-content {
-            text-align: center;
+            z-index: 10;
         }
 
         .engineer-label {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-gray);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
-            letter-spacing: 5px;
         }
 
-        /* Кнопка как элемент управления */
         .btn-engineer {
-            font-size: clamp(24px, 5vw, 48px);
+            font-size: clamp(28px, 6vw, 54px);
             font-weight: bold;
             color: white;
             text-decoration: none;
-            padding: 20px 50px;
+            padding: 25px 60px;
             border: 1px solid var(--accent-color);
-            background-color: rgba(0, 255, 65, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
+            background: transparent;
             position: relative;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
 
         .btn-engineer:hover {
-            background-color: var(--accent-color);
+            background: var(--accent-color);
             color: black;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
-            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
         }
 
-        /* Декоративные уголки для кнопки */
-        .btn-engineer::before, .btn-engineer::after {
-            content: '';
+        /* Декор кнопки */
+        .corner {
             position: absolute;
-            width: 10px;
-            height: 100%;
-            border: 1px solid var(--accent-color);
+            width: 8px;
+            height: 8px;
+            border: 2px solid var(--accent-color);
         }
-        
-        .btn-engineer::before { top: -5px; left: -5px; border-right: none; border-bottom: none; width: 20px; height: 20px; }
-        .btn-engineer::after { bottom: -5px; right: -5px; border-left: none; border-top: none; width: 20px; height: 20px; }
+        .top-l { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .top-r { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+        .bot-l { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+        .bot-r { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
     </style>
 </head>
 <body>
 
-    <div class="grid-bg"></div>
+    <canvas id="dataStream"></canvas>
+    <div class="overlay"></div>
 
     <nav class="nav">
-        <a href="#" class="logo">M.Kulev</a>
-        <div class="status-indicator">
-            <span class="dot"></span> SYSTEM ONLINE
-        </div>
+        <a href="#" class="logo">M.KULEV // SYSTEM_ENG</a>
+        <div class="status">● Kernel: Online</div>
     </nav>
 
-    <header class="header">
-        <div class="header-content">
-            <p class="engineer-label">Industrial Automation & InfoSec</p>
-            <a href="https://t.me/write_miku" class="btn-engineer" target="_blank" rel="noopener noreferrer">
-                CONNECT_
-            </a>
-        </div>
-    </header>
+    <main class="main-frame">
+        <p class="engineer-label">Hardware & Security Expert</p>
+        <a href="https://t.me/write_miku" class="btn-engineer" target="_blank" rel="noopener noreferrer">
+            <div class="corner top-l"></div>
+            <div class="corner top-r"></div>
+            <div class="corner bot-l"></div>
+            <div class="corner bot-r"></div>
+            ESTABLISH_LINK
+        </a>
+    </main>
 
+    <script>
+        const canvas = document.getElementById('dataStream');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Символы: шестнадцатеричный код и системные знаки
+        const latin = '0123456789ABCDEF<>[]{}_+*#';
+        const nums = latin.split('');
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = Array.from({ length: columns }).fill(1);
+
+        const draw = () => {
+            // Создаем эффект затухания (прозрачный черный прямоугольник поверх)
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41'; // Цвет текста
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = nums[Math.floor(Math.random() * nums.length)];
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 35);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
