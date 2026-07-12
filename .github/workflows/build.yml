@@ -1,0 +1,23 @@
+name: Docker Build
+
+# Триггеры: когда запускать автоматику
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ] # При создании или обновлении Pull Request в ветку main
+  workflow_dispatch:     # Кнопка для ручного запуска из интерфейса GitHub
+  schedule:
+    - cron: '0 0 * * *'  # Запуск по расписанию (в данном случае — каждый день в 00:00 UTC)
+
+# Задачи для выполнения
+jobs:
+  build:
+    runs-on: ubuntu-latest # Выделенный бесплатный сервер GitHub
+
+    steps:
+    - name: 1. Скачивание кода
+      uses: actions/checkout@v4
+
+    - name: 2. Сборка Docker-образа
+      run: docker build -t mku-site .
